@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Creează Album{% endblock %}
+{% block content %}
+<div class="form-container">
+    <h2>Creează un Nou Album</h2>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            {{ form.name.label }}<br>
+            {{ form.name(class="form-control") }}<br>
+            {% for error in form.name.errors %}
+                <span class="error">{{ error }}</span>
+            {% endfor %}
+        </div>
+        <div class="form-group">
+            {{ form.is_private }} {{ form.is_private.label }}
+        </div>
+        {{ form.submit(class="btn btn-primary") }}
+    </form>
+</div>
+{% endblock %}

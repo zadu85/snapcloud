@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+<h2>Bine ai venit, {{ current_user.username }}!</h2>
+{% if albums %}
+    <h3>Albumele Tale:</h3>
+    <ul>
+        {% for album in albums %}
+            <li><a href="{{ url_for('view_album', album_id=album.id) }}">{{ album.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nu ai creat inca niciun album.</p>
+{% endif %}
+<a href="{{ url_for('new_album') }}" class="btn btn-secondary">Creeaza un nou album</a>
+{% endblock %}

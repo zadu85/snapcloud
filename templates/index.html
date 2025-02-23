@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Acasă - snapcloud{% endblock %}
+{% block content %}
+<header class="hero">
+    <h1>Păstrează și Partajează Amintirile Tale Prețioase</h1>
+    <p>Creează albume foto digitale și împărtășește-le cu cei dragi.</p>
+    <a href="{{ url_for('register') }}" class="cta-button">Înregistrează-te Gratuit</a>
+</header>
+
+<section class="features">
+    <h2>Funcționalități Cheie</h2>
+    <div class="features-container">
+        <div class="feature">
+            <h3>Stocare Securizată</h3>
+            <p>Păstrează-ți amintirile în siguranță cu ajutorul securității noastre avansate.</p>
+        </div>
+        <div class="feature">
+            <h3>Partajare Simplă</h3>
+            <p>Împărtășește fotografiile tale cu familia și prietenii în doar câteva clicuri.</p>
+        </div>
+        <div class="feature">
+            <h3>Accesibilitate Globală</h3>
+            <p>Accesează-ți albumele de oriunde, oricând, de pe orice dispozitiv.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

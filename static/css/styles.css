@@ -1,0 +1,9 @@
+/* Exemplu de stiluri */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+/* Stiluri pentru navigație, butoane, formulare etc. */

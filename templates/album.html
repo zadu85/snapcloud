@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}{{ album.name }}{% endblock %}
+{% block content %}
+<h2>{{ album.name }}</h2>
+{% if photos %}
+    <div class="gallery">
+        {% for photo in photos %}
+            <div class="photo">
+                <img src="{{ url_for('static', filename='uploads/' + photo.image_file) }}" alt="Fotografie">
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>Nu există fotografii în acest album.</p>
+{% endif %}
+
+<h3>Încărcați o nouă fotografie</h3>
+<form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        {{ form.photo.label }}<br>
+        {{ form.photo(class="form-control-file") }}<br>
+        {% for error in form.photo.errors %}
+            <span class="error">{{ error }}</span>
+        {% endfor %}
+    </div>
+    {{ form.submit(class="btn btn-primary") }}
+</form>
+<h3>Partajare Album</h3>
+<form action="{{ url_for('generate_share_link', album_id=album.id) }}" method="post">
+    {{ form.hidden_tag() }}
+    <button type="submit" class="btn btn-secondary">Genereaza Link de Partajare</button>
+</form>
+
+{% if share_link %}
+    <p>Linkul de partajare: <a href="{{ share_link }}">{{ share_link }}</a></p>
+{% else %}
+    <p>Link-ul de partajare nu a fost generat</p>
+{% endif %}
+
+{% endblock %}
